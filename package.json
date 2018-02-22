@@ -124,7 +124,8 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "regenerator-runtime": "^0.11.0",
-    "seamless-immutable": "^7.1.2"
+    "seamless-immutable": "^7.1.2",
+    "subscriptions-transport-ws": "^0.9.5"
   },
   "engines": {
     "node": ">=7",

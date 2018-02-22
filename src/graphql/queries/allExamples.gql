@@ -1,0 +1,9 @@
+query allExamples {
+  allExamples {
+    index
+    name
+    salary
+    country
+    city
+  }
+}

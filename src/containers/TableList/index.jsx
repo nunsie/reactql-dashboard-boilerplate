@@ -1,10 +1,30 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Table } from 'react-bootstrap';
+import { graphql } from 'react-apollo';
 
 import Card from '../../components/Card';
-import { thArray, tdArray } from '../../variables';
 
+import allExamplesQuery from 'src/graphql/queries/allExamples.gql'
+
+@graphql(allExamplesQuery)
 class TableList extends Component {
+
+    constructor (props) {
+        super(props)
+        this.state = {
+            loading: props.data.loading,
+            allExamples: props.data.allExamples || []
+        }
+    }
+
+    componentWillReceiveProps (props) {
+        if (props.data) {
+            this.setState({
+                loading: props.data.loading,
+                allExamples: props.data.allExamples
+            })
+        }
+    }
 
     render() {
         return (
@@ -20,26 +40,24 @@ class TableList extends Component {
                                     <Table striped hover>
                                         <thead>
                                             <tr>
-                                                {
-                                                    thArray.map((prop, key) => {
-                                                        return (
-                                                            <th key={key}>{prop}</th>
-                                                        );
-                                                    })
-                                                }
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Salary</th>
+                                                <th>Country</th>
+                                                <th>City</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {
-                                                tdArray.map((prop, key) => {
+                                                this.state.allExamples.map((example, key) => {
                                                     return (
-                                                        <tr key={key}>{
-                                                            prop.map((prop, key) => {
-                                                                return (
-                                                                    <td key={key}>{prop}</td>
-                                                                );
-                                                            })
-                                                        }</tr>
+                                                        <tr key={key}>
+                                                            <td>{example.index}</td>
+                                                            <td>{example.name}</td>
+                                                            <td>{example.salary}</td>
+                                                            <td>{example.country}</td>
+                                                            <td>{example.city}</td>
+                                                        </tr>
                                                     )
                                                 })
                                             }

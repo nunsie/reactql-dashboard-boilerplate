@@ -10,7 +10,6 @@ import Helmet from 'react-helmet'
 
 
 import Card from '../../components/Card';
-import { thArray, tdArray } from '../../variables';
 
 import loginMutation from 'src/graphql/mutations/signinUser.gql'
 
@@ -22,8 +21,8 @@ export default class Login extends Component {
     this.state = {
       error: null,
       loading: null,
-      email: null,
-      password: null
+      email: '',
+      password: ''
     }
   }
 

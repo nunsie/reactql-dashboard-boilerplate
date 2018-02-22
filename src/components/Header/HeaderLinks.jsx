@@ -1,8 +1,17 @@
 import React, {Component} from 'react';
+import { history } from 'kit/lib/routing'
+
 import { NavItem, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 
-
 class HeaderLinks extends Component{
+
+    logoutUser () {
+        if (!SERVER) {
+          window.localStorage.removeItem('ReactQLAdmin')
+        }
+        history.push('/login')
+    }
+    
     render(){
         const notification = (
             <div>
@@ -42,7 +51,7 @@ class HeaderLinks extends Component{
                         <MenuItem divider />
                         <MenuItem eventKey={2.5}>Separated link</MenuItem>
                     </NavDropdown>
-                    <NavItem eventKey={3} href="#">Log out</NavItem>
+                    <NavItem eventKey={3} onClick={this.logoutUser}>Log out</NavItem>
                 </Nav>
             </div>
         );
