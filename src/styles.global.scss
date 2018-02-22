@@ -1,0 +1,8 @@
+/* Regular @import url statements work as you'd expect them to -- alternatively
+you can import locally, and they wind up in the resulting bundle */
+// @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+@import './theme/css/animate.min.css';
+@import './theme/css/bootstrap.min.css';
+@import './theme/css/demo.css';
+@import './theme/css/pe-icon-7-stroke.css';
+@import './theme/index';

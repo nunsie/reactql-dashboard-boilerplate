@@ -1,0 +1,15 @@
+query getArtist($id: ID!) {
+  Artist(id: $id) {
+    id
+    name
+    realname
+    bio
+    image
+    facebook
+    twitter
+    instagram
+    deezer
+    soundcloud
+    youtube
+  }
+}

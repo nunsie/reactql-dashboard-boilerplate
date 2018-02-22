@@ -1,0 +1,17 @@
+query allArtists {
+  allArtists {
+    id
+    createdAt
+    updatedAt
+    name
+    realname
+    bio
+    image
+    facebook
+    twitter
+    instagram
+    deezer
+    soundcloud
+    youtube
+  }
+}
